@@ -1,8 +1,120 @@
 .mp_bg{
     width: 100vw;
-    height: 100vh;
+    height: 3000px;
     padding: 0;
-    background: #3494E6;
-    background: -webkit-linear-gradient(to right, #EC6EAD, #3494E6);
-    background: linear-gradient(to right, #EC6EAD, #3494E6); 
+    background: black;
+    overflow-x: hidden;
+}
+/* 1 */
+.mp_title{
+    padding: 0;
+    height: 750px;
+    width: 100%;
+    padding: 0;
+}
+.mp_title_img{
+    padding: 0;
+    height: 750px;
+    width: 100%;
+    box-shadow:0 0 50px #fff;
+}
+.mp_title_txt{
+    text-align: center;
+    font-size: 100px;
+    font-family: 'Qwitcher Grypen', cursive;
+    letter-spacing: 5px;
+    font-weight: 100;
+    margin-bottom: 0px;
+    margin-left: 42%;
+    margin-top: -43%;
+    animation-duration: 2s;
+    animation-name: animation1;
+}
+@keyframes animation1 {
+    from {
+        color:rgb(219, 219, 219);
+        margin-left: 50%;
+        margin-top: -43%;
+    }
+    to {
+        margin-left: 42%;
+        margin-top: -43%;
+    }
+  }
+.mp_title_txt2{
+    margin-top: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    color: rgb(94, 93, 93);
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+/* 2 */
+.mp_bg_cube{
+    height: 2000px;
+    width: 70%;
+    margin-left: 15%;
+}
+
+
+
+
+
+
+
+
+
+
+
+.mp_skill_cube{
+    width: 100%;
+    height: 900px;
+}
+.mp_skill_title{
+    color: white;
+    font-size: 30px;
+}
+.mp_skill_card{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow:0 0 10px gray;
+}
+.mp_skill_card_name{
+    color: var(--cardtitlecolor);
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+.mp_skill_card_des{
+    font-size: 20px;
+    color: white;
+    -moz-hyphens:auto; -ms-hyphens:auto; -webkit-hyphens:auto; hyphens:auto; word-wrap:break-word;
+}
+.mp_skill_card_percentage{
+    height: 30px;
+    width: 100%;
+    background-color: black;
+}
+.mp_skill_card_percentage_content{
+    width: calc(var(--cardper)*1%);
+    height: 100%;
+    background-color: var(--cardtitlecolor);
+    animation-duration: 2s;
+    animation-name: animation2;
+}
+@keyframes animation2 {
+    from {
+        width: 0%;
+    }
+    to {
+        width: calc(var(--cardper)*1%);
+    }
+  }
+.mp_skill_card_percentage_txt{
+    float: right;
+    margin-right: 3%;
+    color: white;
 }
