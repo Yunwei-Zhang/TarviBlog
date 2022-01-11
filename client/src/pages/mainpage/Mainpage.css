@@ -1,6 +1,7 @@
+::-webkit-scrollbar { width:0px; height:0px; }
 .mp_bg{
     width: 100vw;
-    height: 3000px;
+    height: 4000px;
     padding: 0;
     background: black;
     overflow-x: hidden;
@@ -63,17 +64,119 @@
 
 
 
+/* time */
+.mp_time{
+    height: 230px;
+    width: 100%;
+    color: white;
+    font-family:'Roboto Condensed', sans-serif;
+    font-size: 25px;
+    text-align: center;
+}
+.mp_time_date{
+    font-style: italic;
+    letter-spacing: 3px;
+    margin-top: 80px;
+    margin-bottom: -20px;
+}
+.mp_time_time{
+    margin-top: 0px;
+    font-size: 120px;
+    letter-spacing: 10px;
+    text-shadow: #FC5C7D 5px 0 30px;
+}
+.mp_time_time:hover{
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+/* resume */
+.mp_resume{
+    height: 415px;
+    width: 100%;
+}
+.mp_resume_title{
+    color: white;
+    padding: 10px;
+    font-size: 30px;
+    margin-bottom: 0px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    letter-spacing: 6px;
+}
+.mp_resume_cube{
+    height: 305px;
+    width: 100%;
+    padding: 22px;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.15);
+    overflow-x: hidden;
+}
+.mp_resume_cube:hover .mp_resume_subtitle_highlight{
+    color: #ee7b8b;
+}
+.mp_resume_subtitle{
+    display: inline;
+    color: white;
+    font-size: 25px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+.mp_resume_subtitle_highlight{
+    display: inline;
+    color: aquamarine;
+    font-weight: 500;
+}
+.mp_resume_txt{
+    margin-top: 55px;
+    font-size: 17px;
+    color: white;
+    letter-spacing: 1px;
+}
 
 
 
 
+/* carousels */
+.mp_carousels{
+    height: 700px;
+    width:100%;
+    margin-top: 20px;
+}
+.mp_carousels_title{
+    color: white;
+    padding: 10px;
+    font-size: 30px;
+    margin-bottom: 0px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    letter-spacing: 6px;
+}
+.mp_carousels_content1{
+    height: 575px;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+/* skill */
 .mp_skill_cube{
     width: 100%;
     height: 900px;
 }
 .mp_skill_title{
     color: white;
+    padding: 10px;
     font-size: 30px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    letter-spacing: 6px;
 }
 .mp_skill_card{
     width: 100%;
@@ -83,20 +186,41 @@
     background-color: rgba(255, 255, 255, 0.15);
     box-shadow:0 0 10px gray;
 }
+.mp_skill_card:hover{
+    background: #FC5C7D;  
+    background: -webkit-linear-gradient(to right, #6A82FB, #FC5C7D);  
+    background: linear-gradient(to right, #6A82FB, #FC5C7D); 
+    
+}
+.mp_skill_card:hover > .mp_skill_card_name{
+    color: black;
+}
+.mp_skill_card:hover > .mp_skill_card_des{
+    color: black;
+}
+.mp_skill_card:hover > .mp_skill_card_percentage{
+    background-color: rgba(255, 255, 255, 0.7);
+}
+.mp_skill_card:hover  .mp_skill_card_percentage_content{
+    background-color: rgb(0, 0, 0);
+}
+.mp_skill_card:hover  .mp_skill_card_percentage_txt{
+    color: rgb(0, 0, 0);
+}
 .mp_skill_card_name{
     color: var(--cardtitlecolor);
     font-size: 20px;
     margin-bottom: 0px;
 }
 .mp_skill_card_des{
-    font-size: 20px;
+    font-size: 16px;
     color: white;
     -moz-hyphens:auto; -ms-hyphens:auto; -webkit-hyphens:auto; hyphens:auto; word-wrap:break-word;
 }
 .mp_skill_card_percentage{
-    height: 30px;
+    height: 25px;
     width: 100%;
-    background-color: black;
+    background-color: rgba(255, 255, 255, 0.15);
 }
 .mp_skill_card_percentage_content{
     width: calc(var(--cardper)*1%);
@@ -115,6 +239,38 @@
   }
 .mp_skill_card_percentage_txt{
     float: right;
+    font-size: 15px;
     margin-right: 3%;
     color: white;
+}
+
+
+/* footer */
+.mp_footer{
+    margin-top: 130px;
+    height: 300px;
+    width: 100%;
+    border-top: 1px rgb(63, 63, 63) solid;
+    text-align: center;
+    color: white;
+}
+.mp_footer_txt1{
+    margin-top: 40px;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+.mp_footer_txt2{
+    margin-top: 0px;
+    font-size: 14px;
+    font-style: italic;
+}
+.mp_footer_icons{
+    margin-top: 17px;
+    font-size: 20px;
+    padding-left: 12px;
+}
+.mp_footer_icons:hover{
+    color:#ff8c00;
+    cursor: pointer;
 }
