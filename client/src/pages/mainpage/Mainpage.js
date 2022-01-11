@@ -1,12 +1,18 @@
 import { React, Component } from 'react';
 import './Mainpage.css';
 import 'antd/dist/antd.css';
-import { Col, Row } from 'antd';
+import { Col, Row, Timeline } from 'antd';
 import { FacebookOutlined, GithubOutlined, InstagramOutlined } from '@ant-design/icons'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel } from 'react-bootstrap';
 
 import img from '../../assets/images/img_mp_title.png'
+import img_car1 from '../../assets/images/img_mp_carousel1.png'
+import img_car2 from '../../assets/images/img_mp_carousel2.png'
+import img_car3 from '../../assets/images/img_mp_carousel3.png'
+import img_car4 from '../../assets/images/img_mp_carousel4.png'
+import img_car5 from '../../assets/images/img_mp_carousel5.png'
+import img_car6 from '../../assets/images/img_mp_carousel6.png'
 class Mainpage extends Component {
 
     constructor(props) {
@@ -16,7 +22,11 @@ class Mainpage extends Component {
             date_current: '',
             resumename: "Tarvi Chen",
             resumefutrue: "Dreamer",
+
+            className_edu1: 'none',
+            className_edu2: 'none',
             classname_card: 'none',
+
             items_skills: [
                 { id: 1, name: "ACCOUNTING", color: "yellow", per: 60, des: "accounting ability" },
                 { id: 2, name: "ECOMOMIC", color: "aquamarine", per: 80, des: "no other choice..." },
@@ -52,11 +62,18 @@ class Mainpage extends Component {
     }
 
     handleScroll() {
-        if (document.documentElement.scrollTop > 500) {
+        if (document.documentElement.scrollTop > 1800) {
+            this.setState({
+                className_edu1: 'mp_edu_txt1',
+                className_edu2: 'mp_edu_txt4',
+            })
+        }
+        if (document.documentElement.scrollTop > 3000) {
             this.setState({
                 classname_card: 'mp_skill_card_percentage_content'
             })
         }
+        console.log(document.documentElement.scrollTop)
     }
 
     setResumeDetails1() {
@@ -108,23 +125,119 @@ class Mainpage extends Component {
                     </div>
 
                     <div className='mp_carousels'>
-                        <p className='mp_carousels_title'>More...</p>
+                        <p className='mp_carousels_title'>MORE...</p>
                         <div className='mp_carousels_content1'>
                             <Carousel className='mp_carousels_content2'>
                                 <Carousel.Item>
                                     <img
                                         className="d-block w-100"
-                                        src={img}
+                                        src={img_car1}
                                         alt="First slide"
                                     />
                                     <Carousel.Caption>
-                                        <h3>Mrs Duck</h3>
-                                        <p>gagagagaga</p>
+                                        <p className='mp_carousels_txt'>Panda</p>
                                     </Carousel.Caption>
                                 </Carousel.Item>
-
+                                <Carousel.Item>
+                                    <img
+                                        className="d-block w-100"
+                                        src={img_car2}
+                                        alt="First slide"
+                                    />
+                                    <Carousel.Caption>
+                                        <p className='mp_carousels_txt'>I Am A Duck</p>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
+                                <Carousel.Item>
+                                    <img
+                                        className="d-block w-100"
+                                        src={img_car3}
+                                        alt="First slide"
+                                    />
+                                    <Carousel.Caption>
+                                        <p className='mp_carousels_txt'>Korean Resaurant</p>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
+                                <Carousel.Item>
+                                    <img
+                                        className="d-block w-100"
+                                        src={img_car4}
+                                        alt="First slide"
+                                    />
+                                    <Carousel.Caption>
+                                        <p className='mp_carousels_txt'>My Cat - Double Milk</p>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
+                                <Carousel.Item>
+                                    <img
+                                        className="d-block w-100"
+                                        src={img_car5}
+                                        alt="First slide"
+                                    />
+                                    <Carousel.Caption>
+                                        <p className='mp_carousels_txt'>With My Boyfriend</p>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
+                                <Carousel.Item>
+                                    <img
+                                        className="d-block w-100"
+                                        src={img_car6}
+                                        alt="First slide"
+                                    />
+                                    <Carousel.Caption>
+                                        <p className='mp_carousels_txt'>Back To Home</p>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
                             </Carousel>
                         </div>
+                    </div>
+
+                    <div className='mp_edu'>
+                        <p className='mp_edu_title'>EDUCATION</p>
+                        <Timeline mode="alternate">
+                            <Timeline.Item color="white">
+                                <p className={this.state.className_edu1} style={{"--edutxt1": "red"}}>
+                                    I Was Born
+                                    <p className='mp_edu_txt2'>XiangShan, ZheJiang, China</p>
+                                    <p className='mp_edu_txt3'>1998.8.15 -</p>
+                                </p>
+                            </Timeline.Item>
+                            <Timeline.Item color="white" >
+                                <p className={this.state.className_edu2} style={{"--edutxt1": "burlywood"}}>
+                                    WenFeng School
+                                    <p className='mp_edu_txt2'>NingBo, ZheJiang, China</p>
+                                    <p className='mp_edu_txt3'>2004.9 - 2013.6</p>
+                                </p>
+                            </Timeline.Item>
+                            <Timeline.Item color="white" >
+                                <p className={this.state.className_edu1} style={{"--edutxt1": "orange"}}>
+                                    NingBo WaiShi School
+                                    <p className='mp_edu_txt2'>NingBo, ZheJiang, China</p>
+                                    <p className='mp_edu_txt3'>2013.9 - 2015.6</p>
+                                </p>
+                            </Timeline.Item>
+                            <Timeline.Item color="white" >
+                                <p className={this.state.className_edu2} style={{"--edutxt1": "yellow"}}>
+                                    BICC
+                                    <p className='mp_edu_txt2'>Toronto, Canada</p>
+                                    <p className='mp_edu_txt3'>2015.9 - 2018.6</p>
+                                </p>
+                            </Timeline.Item>
+                            <Timeline.Item color="white" >
+                                <p className={this.state.className_edu1} style={{"--edutxt1": "aquamarine"}}>
+                                    UNSW
+                                    <p className='mp_edu_txt2'>Sydnet, Australia</p>
+                                    <p className='mp_edu_txt3'>2019.2 - now</p>
+                                </p>
+                            </Timeline.Item>
+                            <Timeline.Item color="white" >
+                                <p className={this.state.className_edu2} style={{"--edutxt1": "green"}}>
+                                    Future?
+                                    <p className='mp_edu_txt2'>where?</p>
+                                    <p className='mp_edu_txt3'>when?</p>
+                                </p>
+                            </Timeline.Item>
+                        </Timeline>
                     </div>
 
                     <div className='mp_skill_cube'>
@@ -175,9 +288,15 @@ class Mainpage extends Component {
                         </Row>
                     </div>
 
+                    <div className='mp_sig'>
+                        <p className='mp_sig_title'>Tarvi. Chen</p>
+                        <p className='mp_sig_txt1'>“The purpose of our lives is to be happy.”</p>
+                        <p className='mp_sig_txt2'>— Dalai Lama</p>
+                    </div>
+
                     <div className='mp_footer'>
                         <p className='mp_footer_txt1'>© Copyright 2022 - Tarvi's Blog All rights reserved.</p>
-                        <p className='mp_footer_txt2'>Designed by Andy Zhang</p>
+                        <p className='mp_footer_txt2'>- Designed by Andy Zhang</p>
                         <FacebookOutlined className='mp_footer_icons' onClick={() => window.open("https://www.facebook.com/tarvi.chen.1")} />
                         <GithubOutlined className='mp_footer_icons' onClick={() => window.open("https://github.com/Yunwei-Zhang")} />
                         <InstagramOutlined className='mp_footer_icons' onClick={() => window.open("https://www.instagram.com/tarvi.chen.1/?hl=en")} />
