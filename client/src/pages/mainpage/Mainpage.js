@@ -485,6 +485,14 @@ class Mainpage extends Component {
 
                     <div className='mp_contact'>
                         <div className='mp_contact_title'>CONTACT ME</div>
+                        <div className='mp_contact_subtitle'>Wanna to make friend with me ... </div>
+                        <div className='mp_contact_subtitle'>Just contact me now ! </div>
+                        <div className='mp_contact_txtcube'>
+                            <p className='mp_contact_txt1'>TEL (AU) :&nbsp;&nbsp;<p className='mp_contact_txt2'>&nbsp;0488337108(Message Only)&nbsp;</p></p>
+                            <br/><br/><p className='mp_contact_txt1'>TEL (CN) :&nbsp;&nbsp;<p className='mp_contact_txt2'>&nbsp;18268573169(Message Only)&nbsp;</p></p>
+                            <br/><br/><p className='mp_contact_txt1'>EMAIL :&nbsp;&nbsp;<p className='mp_contact_txt2'>&nbsp;chenwenwe_n@163.com&nbsp;</p></p>
+                            <br/><br/><p className='mp_contact_txt1'>WECHAT :&nbsp;&nbsp;<p className='mp_contact_txt2'>&nbsp;WJAJPY&nbsp;</p></p>
+                        </div>
                     </div>
 
                     <div className='mp_sig'>
