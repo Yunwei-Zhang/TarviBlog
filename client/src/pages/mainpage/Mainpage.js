@@ -6,6 +6,8 @@ import { FacebookOutlined, GithubOutlined, InstagramOutlined } from '@ant-design
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import Card from 'react-animated-3d-card'
+import ReactAudioPlayer from 'react-audio-player';
 
 import img from '../../assets/images/img_mp_title.png'
 import img_car1 from '../../assets/images/img_mp_carousel1.png'
@@ -53,7 +55,15 @@ import img_ani6_2 from '../../assets/images/favimages/ani6_2.jpg'
 import img_ani6_3 from '../../assets/images/favimages/ani6_3.jpg'
 import img_ani6_4 from '../../assets/images/favimages/ani6_4.jpg'
 
-import Card from 'react-animated-3d-card'
+import img_song1 from '../../assets/files/img_mp_song1.jpg'
+import song1 from '../../assets/files/media_mp_song1.mp3'
+import img_song2 from '../../assets/files/img_mp_song2.jpg'
+import song2 from '../../assets/files/media_mp_song2.mp3'
+import img_song3 from '../../assets/files/img_mp_song3.jpg'
+import song3 from '../../assets/files/media_mp_song3.mp3'
+import img_song4 from '../../assets/files/img_mp_song4.jpg'
+import song4 from '../../assets/files/media_mp_song4.mp3'
+
 class Mainpage extends Component {
 
     constructor(props) {
@@ -63,12 +73,19 @@ class Mainpage extends Component {
             date_current: '',
             resumename: "Tarvi Chen",
             resumefutrue: "Dreamer",
-            items_selectedfavs:[],
+            items_selectedfavs: [],
+            song_current: song1,
 
             className_edu1: 'none',
             className_edu2: 'none',
             classname_card: 'none',
 
+            item_songs: [
+                {id: 1, name: "路过人间", src: song1, img:img_song1, txtcolor:'black'},
+                {id: 2, name: "我喜欢你上时的内心活动", src: song2, img:img_song2, txtcolor:'black'},
+                {id: 3, name: "桥边姑娘", src: song3, img:img_song3, txtcolor:'white'},
+                {id: 4, name: "出山", src: song4, img:img_song4, txtcolor:'white'},
+            ],
             items_skills: [
                 { id: 1, name: "ACCOUNTING", color: "yellow", per: 60, des: "accounting ability" },
                 { id: 2, name: "ECOMOMIC", color: "aquamarine", per: 80, des: "no other choice..." },
@@ -95,56 +112,56 @@ class Mainpage extends Component {
                 { id: 6, name: "Games", icon: "fas fa-gamepad" },
             ],
             //all the favourite cards content
-            items_fav_1:[
-                {id:1, name:"My Own Cat", src: img_ani1_1},
-                {id:2, name:"Homeless Cat", src: img_ani1_2},
-                {id:3, name:"My BF's Dog", src: img_ani1_3},
-                {id:4, name:"Panda", src: img_ani1_4},
-                {id:5, name:"In Dog Cafe", src: img_ani1_5},
-                {id:6, name:"Pig", src: img_ani1_6},
+            items_fav_1: [
+                { id: 1, name: "My Own Cat", src: img_ani1_1 },
+                { id: 2, name: "Homeless Cat", src: img_ani1_2 },
+                { id: 3, name: "My BF's Dog", src: img_ani1_3 },
+                { id: 4, name: "Panda", src: img_ani1_4 },
+                { id: 5, name: "In Dog Cafe", src: img_ani1_5 },
+                { id: 6, name: "Pig", src: img_ani1_6 },
             ],
-            items_fav_2:[
-                {id:1, name:"Brunch", src: img_ani2_1},
-                {id:2, name:"Oil Shrimp", src: img_ani2_2},
-                {id:3, name:"Mango Coco", src: img_ani2_3},
-                {id:4, name:"Chuancai", src: img_ani2_4},
-                {id:5, name:"Western Rest - Bentley", src: img_ani2_5},
-                {id:6, name:"BF's Cooked Food", src: img_ani2_6},
-                {id:7, name:"Zaocha", src: img_ani2_7},
-                {id:8, name:"Ramen", src: img_ani2_8},
-                {id:9, name:"Sashimi", src: img_ani2_9},
-                {id:10, name:"Watermalen Juice", src: img_ani2_10},
-                {id:11, name:"Seafood - Abalone", src: img_ani2_11},
-                {id:12, name:"Japanese rest - Yayoi", src: img_ani2_12},
-                {id:13, name:"Korean rest - DonDon", src: img_ani2_13},
-                {id:14, name:"Mershmallow", src: img_ani2_14},
+            items_fav_2: [
+                { id: 1, name: "Brunch", src: img_ani2_1 },
+                { id: 2, name: "Oil Shrimp", src: img_ani2_2 },
+                { id: 3, name: "Mango Coco", src: img_ani2_3 },
+                { id: 4, name: "Chuancai", src: img_ani2_4 },
+                { id: 5, name: "Western Rest - Bentley", src: img_ani2_5 },
+                { id: 6, name: "BF's Cooked Food", src: img_ani2_6 },
+                { id: 7, name: "Zaocha", src: img_ani2_7 },
+                { id: 8, name: "Ramen", src: img_ani2_8 },
+                { id: 9, name: "Sashimi", src: img_ani2_9 },
+                { id: 10, name: "Watermalen Juice", src: img_ani2_10 },
+                { id: 11, name: "Seafood - Abalone", src: img_ani2_11 },
+                { id: 12, name: "Japanese rest - Yayoi", src: img_ani2_12 },
+                { id: 13, name: "Korean rest - DonDon", src: img_ani2_13 },
+                { id: 14, name: "Mershmallow", src: img_ani2_14 },
             ],
-            items_fav_3:[
-                {id:1, name:"Syndey - Sweagull In Beach", src: img_ani3_1},
-                {id:2, name:"Canberra - Cold Street", src: img_ani3_2},
-                {id:3, name:"Sichuan - Golden Mask", src: img_ani3_3},
+            items_fav_3: [
+                { id: 1, name: "Syndey - Bondi Beach", src: img_ani3_1 },
+                { id: 2, name: "Canberra - Cold Street", src: img_ani3_2 },
+                { id: 3, name: "Sichuan - Golden Mask", src: img_ani3_3 },
             ],
-            items_fav_4:[
-                {id:1, name:"Anime - One Piece", src: img_ani4_1},
-                {id:2, name:"Korean - 1988", src: img_ani4_2},
-                {id:3, name:"Netflix - Alice", src: img_ani4_3},
+            items_fav_4: [
+                { id: 1, name: "Anime - One Piece", src: img_ani4_1 },
+                { id: 2, name: "Korean - 1988", src: img_ani4_2 },
+                { id: 3, name: "Netflix - Alice", src: img_ani4_3 },
             ],
-            items_fav_5:[
-                {id:1, name:"Dolls", src: img_ani5_1},
-                {id:2, name:"Toys", src: img_ani5_2},
+            items_fav_5: [
+                { id: 1, name: "Dolls", src: img_ani5_1 },
+                { id: 2, name: "Toys", src: img_ani5_2 },
             ],
-            items_fav_6:[
-                {id:1, name:"Wangzhe", src: img_ani6_1},
-                {id:2, name:"CSGO", src: img_ani6_2},
-                {id:3, name:"PUBG", src: img_ani6_3},
-                {id:4, name:"Sea of Thieves", src: img_ani6_4},
+            items_fav_6: [
+                { id: 1, name: "Wangzhe", src: img_ani6_1 },
+                { id: 2, name: "CSGO", src: img_ani6_2 },
+                { id: 3, name: "PUBG", src: img_ani6_3 },
+                { id: 4, name: "Sea of Thieves", src: img_ani6_4 },
             ],
         }
     }
 
     setStateAsync(state) {
         return new Promise((resolve) => {
-          this.setState(state, resolve)
+            this.setState(state, resolve)
         });
     }
 
@@ -190,15 +207,22 @@ class Mainpage extends Component {
         })
     }
 
-    async setFavCard(i){
-        await this.setStateAsync({items_selectedfavs:[]});
-        if(i==1)this.setState({items_selectedfavs:this.state.items_fav_1});
-        if(i==2)this.setState({items_selectedfavs:this.state.items_fav_2});
-        if(i==3)this.setState({items_selectedfavs:this.state.items_fav_3});
-        if(i==4)this.setState({items_selectedfavs:this.state.items_fav_4});
-        if(i==5)this.setState({items_selectedfavs:this.state.items_fav_5});
-        if(i==6)this.setState({items_selectedfavs:this.state.items_fav_6});
+    async setFavCard(i) {
+        await this.setStateAsync({ items_selectedfavs: [] });
+        if (i == 1) this.setState({ items_selectedfavs: this.state.items_fav_1 });
+        if (i == 2) this.setState({ items_selectedfavs: this.state.items_fav_2 });
+        if (i == 3) this.setState({ items_selectedfavs: this.state.items_fav_3 });
+        if (i == 4) this.setState({ items_selectedfavs: this.state.items_fav_4 });
+        if (i == 5) this.setState({ items_selectedfavs: this.state.items_fav_5 });
+        if (i == 6) this.setState({ items_selectedfavs: this.state.items_fav_6 });
     }
+
+    async setSong(src) {
+        await this.setStateAsync({ song_current: '' });
+        this.setState({ song_current: src});
+        console.log(this.state.song_current)
+    }
+
 
     render() {
         return (
@@ -233,6 +257,27 @@ class Mainpage extends Component {
                                 our story and have a tea together waiting for the night falls
                             </p>
                         </div>
+                    </div>
+
+                    <div className='mp_music'>
+                        <div className='mp_music_title'>MY MUSIC</div>
+                        <ReactAudioPlayer
+                            className='mp_music_player'
+                            autoPlay = {true}
+                            src={this.state.song_current}
+                            loop = "true"
+                            controls
+                        /> 
+                        <Row gutter={[32, 20]}>
+                                {this.state.item_songs.map((item,index)=>(
+                                <Col span={6}>
+                                    <div className='mp_music_cube' onClick={()=>this.setSong(item.src)}>
+                                        <img className='mp_music_img' src={item.img} alt></img>
+                                        <p className='mp_music_imgtxt' style={{"--txtcolor": item.txtcolor}}>{item.name}</p>
+                                    </div>
+                                    </Col>
+                                ))}
+                        </Row>
                     </div>
 
                     <div className='mp_carousels'>
@@ -403,7 +448,7 @@ class Mainpage extends Component {
                         <div className='mp_fav_title'>WHAT I LIKE</div><i class="fas fa-cat" className='mp_favs_img'></i>
                         <div className='mp_favs_cube'>
                             {this.state.items_favs.map((item, index) => (
-                                <div className='mp_favs' onClick={()=>this.setFavCard(item.id)}>
+                                <div className='mp_favs' onClick={() => this.setFavCard(item.id)}>
                                     <OverlayTrigger placement="top" overlay={<Tooltip >{item.name}</Tooltip>}>
                                         <div className='mp_favs_img_cube'>
                                             <div className='mp_favs_img'><i class={item.icon}></i></div>
@@ -414,28 +459,24 @@ class Mainpage extends Component {
                         </div>
                         <div className='mp_fav_details'>
                             <Row gutter={[32, 20]}>
-                            {this.state.items_selectedfavs.map((item,index)=>(
-                                <Col span={6}>
-                                    <div className='mp_fav_card'>
-                                <Card
-                                style={{
-                                    backgroundColor: 'rgba(255, 0, 0, 0.199)',
-                                    width: 'auto',
-                                    height: '315px',
-                                    cursor: 'pointer',
-                                }}>
-                                <img style={{ width: "100%", height: "100%" }} src={item.src}></img>
-                                <div className='mp_fav_detailstxt'>{item.name}</div>
-                                </Card>
-                                </div>
-                                </Col>
-                            ))}
+                                {this.state.items_selectedfavs.map((item, index) => (
+                                    <Col span={6}>
+                                        <div className='mp_fav_card'>
+                                            <Card
+                                                style={{
+                                                    backgroundColor: 'rgba(255, 0, 0, 0.199)',
+                                                    width: 'auto',
+                                                    height: '315px',
+                                                    cursor: 'pointer',
+                                                }}>
+                                                <img style={{ width: "100%", height: "100%" }} src={item.src}></img>
+                                                <div className='mp_fav_detailstxt'>{item.name}</div>
+                                            </Card>
+                                        </div>
+                                    </Col>
+                                ))}
                             </Row>
                         </div>
-                    </div>
-
-                    <div className='mp_music'>
-                        <div className='mp_music_title'>MUSIC</div>
                     </div>
 
                     <div className='mp_blog'>

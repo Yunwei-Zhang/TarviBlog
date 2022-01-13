@@ -68,3 +68,22 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+the best to set changes,点击不同的东西来切换方法，比如1-100，我点那个就播放那首歌：
+ async setFavCard(i) {
+        await this.setStateAsync({ items_selectedfavs: [] });
+        if (i == 1) this.setState({ items_selectedfavs: this.state.items_fav_1 });
+        if (i == 2) this.setState({ items_selectedfavs: this.state.items_fav_2 });
+        if (i == 3) this.setState({ items_selectedfavs: this.state.items_fav_3 });
+        if (i == 4) this.setState({ items_selectedfavs: this.state.items_fav_4 });
+        if (i == 5) this.setState({ items_selectedfavs: this.state.items_fav_5 });
+        if (i == 6) this.setState({ items_selectedfavs: this.state.items_fav_6 });
+    }
+
+    async setSong(src) {
+        await this.setStateAsync({ song_current: '' });
+        this.setState({ song_current: src});
+        console.log(this.state.song_current)
+    }
