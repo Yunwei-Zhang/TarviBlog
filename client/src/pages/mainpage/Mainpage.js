@@ -1,7 +1,7 @@
 import { React, Component } from 'react';
 import './Mainpage.css';
 import 'antd/dist/antd.css';
-import { Col, Row, Timeline } from 'antd';
+import { Col, Row, Timeline, Tag } from 'antd';
 import { FacebookOutlined, GithubOutlined, InstagramOutlined } from '@ant-design/icons'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel, OverlayTrigger, Tooltip } from 'react-bootstrap';
@@ -81,10 +81,10 @@ class Mainpage extends Component {
             classname_card: 'none',
 
             item_songs: [
-                {id: 1, name: "路过人间", src: song1, img:img_song1, txtcolor:'black'},
-                {id: 2, name: "我喜欢你上时的内心活动", src: song2, img:img_song2, txtcolor:'black'},
-                {id: 3, name: "桥边姑娘", src: song3, img:img_song3, txtcolor:'white'},
-                {id: 4, name: "出山", src: song4, img:img_song4, txtcolor:'white'},
+                { id: 1, name: "路过人间", src: song1, img: img_song1, txtcolor: 'black' },
+                { id: 2, name: "我喜欢你上时的内心活动", src: song2, img: img_song2, txtcolor: 'black' },
+                { id: 3, name: "桥边姑娘", src: song3, img: img_song3, txtcolor: 'white' },
+                { id: 4, name: "出山", src: song4, img: img_song4, txtcolor: 'white' },
             ],
             items_skills: [
                 { id: 1, name: "ACCOUNTING", color: "yellow", per: 60, des: "accounting ability" },
@@ -110,6 +110,17 @@ class Mainpage extends Component {
                 { id: 4, name: "Movie", icon: "fas fa-film" },
                 { id: 5, name: "Toy", icon: "fas fa-piggy-bank" },
                 { id: 6, name: "Games", icon: "fas fa-gamepad" },
+            ],
+            items_blogs: [
+                { id: 1, title: "A New Start", time: "14/1/2022", content: "Finally I owned my individual blog, really a nice start!", tags:[
+                    {id: 1.1, content: "Start", tagcolor: "green"},
+                    {id: 1.2, content: "Mood", tagcolor: "blue"},
+                ],},
+                { id: 2, title: "Missing", time: "15/1/2022", content: "After back to home, I am more missing my own cat", tags:[
+                    {id: 2.1, content: "Mood", tagcolor: "blue"},
+                    {id: 2.2, content: "Pet", tagcolor: "gray"},
+                    {id: 2.3, content: "Home", tagcolor: "pink"}
+                ],},
             ],
             //all the favourite cards content
             items_fav_1: [
@@ -219,7 +230,7 @@ class Mainpage extends Component {
 
     async setSong(src) {
         await this.setStateAsync({ song_current: '' });
-        this.setState({ song_current: src});
+        this.setState({ song_current: src });
         console.log(this.state.song_current)
     }
 
@@ -263,20 +274,20 @@ class Mainpage extends Component {
                         <div className='mp_music_title'>MY MUSIC</div>
                         <ReactAudioPlayer
                             className='mp_music_player'
-                            autoPlay = {true}
+                            autoPlay={true}
                             src={this.state.song_current}
-                            loop = "true"
+                            loop="true"
                             controls
-                        /> 
+                        />
                         <Row gutter={[32, 20]}>
-                                {this.state.item_songs.map((item,index)=>(
+                            {this.state.item_songs.map((item, index) => (
                                 <Col span={6}>
-                                    <div className='mp_music_cube' onClick={()=>this.setSong(item.src)}>
+                                    <div className='mp_music_cube' onClick={() => this.setSong(item.src)}>
                                         <img className='mp_music_img' src={item.img} alt></img>
-                                        <p className='mp_music_imgtxt' style={{"--txtcolor": item.txtcolor}}>{item.name}</p>
+                                        <p className='mp_music_imgtxt' style={{ "--txtcolor": item.txtcolor }}>{item.name}</p>
                                     </div>
-                                    </Col>
-                                ))}
+                                </Col>
+                            ))}
                         </Row>
                     </div>
 
@@ -481,6 +492,21 @@ class Mainpage extends Component {
 
                     <div className='mp_blog'>
                         <div className='mp_blog_title'>SOME BLOGS</div>
+                        <div className='mp_blog_cube'>
+                            {this.state.items_blogs.map((item, index) => (
+                                <div className='mp_blog_content1'>
+                                    <p className='mp_blog_txt1'>{item.title}&nbsp;&nbsp;<p className='mp_blog_txt2'>{item.time}</p></p>
+                                    <p className='mp_blog_txt3'>Tarvi Chen</p>
+                                    <div className='mp_blog_content2'>
+                                        <p>{item.content}</p>
+                                        <br/><br/><br/>
+                                        {item.tags.map((item2,index)=>(
+                                            <Tag className='mp_blogs_tags' color={item2.tagcolor}><p className='mp_blogs_tagstxt'>{item2.content}</p></Tag>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
                     <div className='mp_contact'>
@@ -489,16 +515,16 @@ class Mainpage extends Component {
                         <div className='mp_contact_subtitle'>Just contact me now ! </div>
                         <div className='mp_contact_txtcube'>
                             <p className='mp_contact_txt1'>TEL (AU) :&nbsp;&nbsp;<p className='mp_contact_txt2'>&nbsp;0488337108(Message Only)&nbsp;</p></p>
-                            <br/><br/><p className='mp_contact_txt1'>TEL (CN) :&nbsp;&nbsp;<p className='mp_contact_txt2'>&nbsp;18268573169(Message Only)&nbsp;</p></p>
-                            <br/><br/><p className='mp_contact_txt1'>EMAIL :&nbsp;&nbsp;<p className='mp_contact_txt2'>&nbsp;chenwenwe_n@163.com&nbsp;</p></p>
-                            <br/><br/><p className='mp_contact_txt1'>WECHAT :&nbsp;&nbsp;<p className='mp_contact_txt2'>&nbsp;WJAJPY&nbsp;</p></p>
+                            <br /><br /><p className='mp_contact_txt1'>TEL (CN) :&nbsp;&nbsp;<p className='mp_contact_txt2'>&nbsp;18268573169(Message Only)&nbsp;</p></p>
+                            <br /><br /><p className='mp_contact_txt1'>EMAIL :&nbsp;&nbsp;<p className='mp_contact_txt2'>&nbsp;chenwenwe_n@163.com&nbsp;</p></p>
+                            <br /><br /><p className='mp_contact_txt1'>WECHAT :&nbsp;&nbsp;<p className='mp_contact_txt2'>&nbsp;WJAJPY&nbsp;</p></p>
                         </div>
                     </div>
 
                     <div className='mp_sig'>
                         <p className='mp_sig_title'>Tarvi. Chen</p>
-                        <p className='mp_sig_txt1'>“The purpose of our lives is to be happy.”</p>
-                        <p className='mp_sig_txt2'>— Dalai Lama</p>
+                        <p className='mp_sig_txt1'>“Live for each second without hesitation.”</p>
+                        <p className='mp_sig_txt2'>— Elton John</p>
                         <br />
                     </div>
 
